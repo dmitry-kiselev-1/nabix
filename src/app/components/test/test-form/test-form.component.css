@@ -1,0 +1,10 @@
+.component-container
+{
+  background-color: white;
+}
+
+.component-border
+{
+  border-style: solid;
+  border-width: 1px;
+}
