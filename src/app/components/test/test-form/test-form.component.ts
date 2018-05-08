@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TestFormModel } from '../../../models/test-form.model';
-import { DateService } from '../../../services/date.service';
+import {Component, OnInit} from '@angular/core';
+import {TestFormModel} from '../../../models/test-form.model';
+import {DateService} from '../../../services/date.service';
 
 @Component({
   selector: 'app-test-form',
@@ -18,32 +18,43 @@ export class TestFormComponent implements OnInit {
 
   constructor(
     private dateService: DateService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
 
   push(inputDateString: string) {
     this.isPushed = this.dateService.saveDate(inputDateString);
-    if (this.isPushed) {this.entity.inputDateString = inputDateString; }
+    if (this.isPushed) {
+      this.entity.inputDateString = inputDateString;
+    }
   }
 
   pull() {
-    debugger;
+    // debugger;
 
     let result = this.dateService.loadDate();
 
     this.isPulled = (result ? true : false);
-    if (this.isPulled) {this.entity.serviceDateString = result; }
+    if (this.isPulled) {
+      this.entity.serviceDateString = result;
+    }
   }
 
   send() {
-/*
+
+    // debugger;
+
     this.dateService.post()
-      .subscribe(response => {
-        this.httpResponseCode = response.status;
-        this.isSended = true;
-      });
-*/
+      .subscribe(
+        response => {
+          this.httpResponseCode = response.status;
+          this.isSended = true;
+        }, error => {
+          // debugger;
+          this.httpResponseCode = 400;
+          this.isSended = false;
+        });
   }
 }

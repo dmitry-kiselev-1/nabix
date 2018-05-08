@@ -1,6 +1,3 @@
-﻿export interface DateDto  {
-
+﻿export class DateDto  {
   dateIso8601: string;
-  date: Date;
-
 }

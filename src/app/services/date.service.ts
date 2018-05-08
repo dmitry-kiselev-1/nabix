@@ -3,6 +3,7 @@ import { TestFormModel } from '../models/test-form.model';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import { DateDto } from '../models/date.dto';
 import { Observable } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import * as moment from 'moment';
 
 
@@ -20,7 +21,7 @@ export class DateService {
   // Сохраняет дату в сервис, в случае ошибки валидации возвращает false
   saveDate(dateString: string): boolean {
 
-    debugger;
+    // debugger;
 
     // извлекаем введённое значение:
     const inputDate = moment(dateString, this.inputDateFormat, true);
@@ -43,7 +44,7 @@ export class DateService {
   // Извлекает дату из сервиса, в случае некорректной даты возвращает null
   loadDate(): string {
 
-    debugger;
+    // debugger;
 
     const serviceDate = moment(DateService.repository.serviceDateString, this.inputDateFormat, true);
 
@@ -56,20 +57,17 @@ export class DateService {
   }
 
   // Выполняет асинхронный запрос к веб-сервису
-/*
-  post(): Observable<HttpResponse> {
+  post(): Observable<HttpResponse<object>> {
 
-    debugger;
+    // debugger;
 
-    let dateDto: DateDto;
     const dateIso8601 = moment(DateService.repository.serviceDateString, this.inputDateFormat, true)
       .toISOString(true);
 
-    dateDto.dateIso8601 = dateIso8601;
+    const dateDto = {dateIso8601: dateIso8601} as DateDto;
 
     return this.httpClient.post(
       'http://domain/controller/savedate', dateDto,
       { observe: 'response' });
   }
-*/
 }
