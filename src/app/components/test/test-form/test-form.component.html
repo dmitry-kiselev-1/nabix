@@ -30,11 +30,8 @@
         Отсутствует дата в сервисе
       </div>
 
-      <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="!this.isSended">
+      <div class="alert alert-danger" role="alert" *ngIf="!this.isSended">
         Ошибка связи с веб-сервисом {{this.httpResponseCode}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
 
       <button type="button" class="btn btn-light" (click)="send()">Send</button>
