@@ -52,15 +52,16 @@ export class DateService {
 
     return isValid
       ? DateService.repository.serviceDateString
-      : '00.00.0000';
+      : null;
   }
 
   // Выполняет асинхронный запрос к веб-сервису
+/*
   post(): Observable<HttpResponse> {
 
     debugger;
 
-    const dateDto: DateDto;
+    let dateDto: DateDto;
     const dateIso8601 = moment(DateService.repository.serviceDateString, this.inputDateFormat, true)
       .toISOString(true);
 
@@ -70,4 +71,5 @@ export class DateService {
       'http://domain/controller/savedate', dateDto,
       { observe: 'response' });
   }
+*/
 }

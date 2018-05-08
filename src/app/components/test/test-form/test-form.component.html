@@ -9,6 +9,7 @@
         <input type="text" class="form-control" id="inputDate"
                [(ngModel)]="this.entity.inputDateString" name="inputDate" #inputDateControl="ngModel">
       </div>
+
       <div class="alert alert-danger" role="alert" *ngIf="!this.isPushed">
         Значение должно быть правильной датой в допустимом диапазоне
       </div>
@@ -24,6 +25,11 @@
                [(ngModel)]="this.entity.serviceDateString" name="serviceDate" #serviceDateControl="ngModel"
                [disabled]="true">
       </div>
+
+      <div class="alert alert-danger" role="alert" *ngIf="!this.isPulled">
+        Отсутствует дата в сервисе
+      </div>
+
       <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="!this.isSended">
         Ошибка связи с веб-сервисом {{this.httpResponseCode}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
