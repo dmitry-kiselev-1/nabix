@@ -14,7 +14,7 @@ export class DateService {
 
   static repository: TestFormModel = new TestFormModel();
 
-  public inputDateFormat = 'DD.MM.YYYY';
+  public inputDateFormat = 'DD.MM.YYYY'; // YYYY-MM-DDTHH.mm.ss.SSS
 
   constructor(private httpClient: HttpClient) { }
 
