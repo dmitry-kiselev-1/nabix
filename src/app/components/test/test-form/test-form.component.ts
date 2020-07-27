@@ -25,6 +25,7 @@ export class TestFormComponent implements OnInit {
   }
 
   push(inputDateString: string) {
+    //debugger;
     this.isPushed = this.dateService.saveDate(inputDateString);
     if (this.isPushed) {
       this.entity.inputDateString = inputDateString;
@@ -33,7 +34,6 @@ export class TestFormComponent implements OnInit {
 
   pull() {
     // debugger;
-
     let result = this.dateService.loadDate();
 
     this.isPulled = (result ? true : false);
@@ -43,9 +43,7 @@ export class TestFormComponent implements OnInit {
   }
 
   send() {
-
     // debugger;
-
     this.dateService.post()
       .subscribe(
         response => {

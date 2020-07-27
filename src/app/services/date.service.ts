@@ -21,7 +21,7 @@ export class DateService {
   // Сохраняет дату в сервис, в случае ошибки валидации возвращает false
   saveDate(dateString: string): boolean {
 
-    // debugger;
+    //debugger;
 
     // извлекаем введённое значение:
     const inputDate = moment(dateString, this.inputDateFormat, true);
@@ -30,7 +30,7 @@ export class DateService {
     const isValid = inputDate.isValid();
 
     // проверка, что введённое значение находится в допустимом интервале:
-    const isInRange = inputDate.isBetween('1901-01-01', '2050-31-12', 'day', '[]');
+    const isInRange = inputDate.isBetween('1901-01-01', '2050-12-31', undefined, '[]');
 
     if (isValid && isInRange ) {
       DateService.repository.inputDateString = dateString;
